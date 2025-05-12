@@ -43,14 +43,14 @@ export default function WishlistDetails() {
     try {
       if (isEditing) {
         await axios.put(
-          `http://localhost:5000/api/products/${editingProductId}`,
+          `https://localhost:5000/api/products/${editingProductId}`,
           { name: form.name, image: form.image, price: form.price },
           { headers: { Authorization: `Bearer ${token}` } }
         );
         setMessage("Product updated!");
       } else {
         await axios.post(
-          "http://localhost:5000/api/products",
+          "https://localhost:5000/api/products",
           { ...form, wishlistId: id },
           { headers: { Authorization: `Bearer ${token}` } }
         );
@@ -69,7 +69,7 @@ export default function WishlistDetails() {
 
   const handleDelete = async (productId) => {
     try {
-      await axios.delete(`http://localhost:5000/api/products/${productId}`, {
+      await axios.delete(`https://localhost:5000/api/products/${productId}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       fetchProducts();
