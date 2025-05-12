@@ -19,7 +19,7 @@ export default function WishlistDetails() {
   const fetchProducts = useCallback(async () => {
     try {
       const res = await axios.get(
-        `http://wishlist-backend-2-aoy9.onrender.com/api/products/${id}`,
+        `https://wishlist-backend-2-aoy9.onrender.com/api/products/${id}`,
         {
           headers: { Authorization: `Bearer ${token}` },
         }
