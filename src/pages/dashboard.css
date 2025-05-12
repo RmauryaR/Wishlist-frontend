@@ -1,0 +1,130 @@
+/* Base Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Container */
+.dashboard-container {
+    max-width: 90%;
+    width: 100%;
+    max-width: 600px;
+    margin: 3rem auto;
+    padding: 2rem;
+    background-color: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 0.75rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Title */
+.dashboard-title {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    color: #1f2937;
+    text-align: center;
+}
+
+/* Form */
+.dashboard-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.dashboard-select {
+    padding: 0.75rem;
+    border: 1px solid #d1d5db;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+}
+
+.dashboard-btn {
+    background-color: #059669;
+    color: white;
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 0.75rem;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.dashboard-btn:hover {
+    background-color: #047857;
+}
+
+/* Message */
+.dashboard-message {
+    font-size: 0.9rem;
+    color: #16a34a;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+/* Wishlist Items */
+.wishlist-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+.wishlist-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 1rem;
+    border: 1px solid #e5e7eb;
+    border-radius: 0.5rem;
+    transition: background 0.3s;
+}
+
+.wishlist-item:hover {
+    background-color: #f9fafb;
+}
+
+.wishlist-link {
+    color: #2563eb;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.wishlist-link:hover {
+    text-decoration: underline;
+}
+
+.delete-btn {
+    color: #dc2626;
+    font-size: 0.875rem;
+    cursor: pointer;
+    border: none;
+    background: none;
+}
+
+.delete-btn:hover {
+    text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+    .dashboard-container {
+        padding: 1.5rem;
+    }
+
+    .dashboard-title {
+        font-size: 1.5rem;
+    }
+
+    .dashboard-btn {
+        font-size: 0.95rem;
+    }
+
+    .wishlist-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+}
