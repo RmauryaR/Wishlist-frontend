@@ -32,7 +32,7 @@ export default function Dashboard() {
     e.preventDefault();
     try {
       await axios.post(
-        "http://localhost:5000/api/wishlists",
+        "https://wishlist-backend-2-aoy9.onrender.com/api/wishlists",
         { title: category, category },
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -49,7 +49,7 @@ export default function Dashboard() {
     if (!window.confirm("Are you sure you want to delete this wishlist?"))
       return;
     try {
-      await axios.delete(`http://localhost:5000/api/wishlists/${id}`, {
+      await axios.delete(`https://wishlist-backend-2-aoy9.onrender.com/api/wishlists/${id}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setMessage("Wishlist deleted!");
