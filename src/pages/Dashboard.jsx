@@ -13,7 +13,7 @@ export default function Dashboard() {
   const fetchWishlists = useCallback(async () => {
     try {
       const res = await axios.get(
-        "http://wishlist-backend-2-aoy9.onrender.com/wishlists",
+        "https://wishlist-backend-2-aoy9.onrender.com/wishlists",
         {
           headers: { Authorization: `Bearer ${token}` },
         }
