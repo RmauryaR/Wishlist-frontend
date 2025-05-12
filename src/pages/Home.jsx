@@ -10,7 +10,9 @@ export default function Home() {
   useEffect(() => {
     const fetchAllProducts = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/api/products/all");
+        const res = await axios.get(
+          "http://wishlist-backend-2-aoy9.onrender.com/api/products/all"
+        );
         setProducts(res.data);
       } catch (err) {
         console.error("Error fetching products", err);

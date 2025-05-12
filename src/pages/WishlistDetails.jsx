@@ -18,9 +18,12 @@ export default function WishlistDetails() {
   // Memoize fetchProducts with useCallback to prevent unnecessary re-renders
   const fetchProducts = useCallback(async () => {
     try {
-      const res = await axios.get(`http://localhost:5000/api/products/${id}`, {
-        headers: { Authorization: `Bearer ${token}` },
-      });
+      const res = await axios.get(
+        `http://wishlist-backend-2-aoy9.onrender.com/api/products/${id}`,
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        }
+      );
       setProducts(res.data);
     } catch (err) {
       console.error("Error fetching products", err);

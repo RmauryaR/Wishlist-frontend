@@ -24,7 +24,7 @@ export default function Signup() {
 
     try {
       const res = await axios.post(
-        "http://localhost:5000/api/auth/signup",
+        "http://wishlist-backend-2-aoy9.onrender.com/api/auth/signup",
         formData
       );
       console.log(res.data);
