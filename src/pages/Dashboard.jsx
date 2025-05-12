@@ -12,9 +12,12 @@ export default function Dashboard() {
 
   const fetchWishlists = useCallback(async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/wishlists", {
-        headers: { Authorization: `Bearer ${token}` },
-      });
+      const res = await axios.get(
+        "http://wishlist-backend-2-aoy9.onrender.com/wishlists",
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        }
+      );
       setWishlists(res.data);
     } catch (err) {
       console.error("Failed to fetch wishlists", err);
