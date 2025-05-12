@@ -43,14 +43,14 @@ export default function WishlistDetails() {
     try {
       if (isEditing) {
         await axios.put(
-          `https://localhost:5000/api/products/${editingProductId}`,
+          `https://wishlist-backend-2-aoy9.onrender.com/api/products/${editingProductId}`,
           { name: form.name, image: form.image, price: form.price },
           { headers: { Authorization: `Bearer ${token}` } }
         );
         setMessage("Product updated!");
       } else {
         await axios.post(
-          "https://localhost:5000/api/products",
+          "https://wishlist-backend-2-aoy9.onrender.com/api/products",
           { ...form, wishlistId: id },
           { headers: { Authorization: `Bearer ${token}` } }
         );
@@ -69,7 +69,7 @@ export default function WishlistDetails() {
 
   const handleDelete = async (productId) => {
     try {
-      await axios.delete(`https://localhost:5000/api/products/${productId}`, {
+      await axios.delete(`https://wishlist-backend-2-aoy9.onrender.com/api/products/${productId}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       fetchProducts();
