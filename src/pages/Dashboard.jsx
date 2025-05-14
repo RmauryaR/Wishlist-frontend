@@ -7,8 +7,25 @@ export default function Dashboard() {
   const [wishlists, setWishlists] = useState([]);
   const [category, setCategory] = useState("");
   const [message, setMessage] = useState("");
-
+  const [userName, setUserName] = useState("");
+  
   const token = localStorage.getItem("token");
+
+  useEffect(() => {
+  const fetchUser = async () => {
+    try {
+      const res = await axios.get("https://wishlist-backend-2-aoy9.onrender.com/api/auth/me", {
+        headers: { Authorization: `Bearer ${token}` },
+      });
+      setUserName(res.data.name); // assuming `name` is returned
+    } catch (err) {
+      console.error("Error fetching user info", err);
+    }
+  };
+
+  fetchUser();
+  fetchWishlists();
+}, [fetchWishlists, token]);
 
   const fetchWishlists = useCallback(async () => {
     try {
@@ -62,7 +79,7 @@ export default function Dashboard() {
 
   return (
     <div className="dashboard-container">
-      <h2 className="dashboard-title">Your Wishlists</h2>
+      <h2 className="dashboard-title">{userName ? `${userName}'s Dashboard` : "User's Dashboard"}</h2>
 
       <form onSubmit={handleCreate} className="dashboard-form">
         <select
