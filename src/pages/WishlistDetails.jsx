@@ -19,7 +19,7 @@ export default function WishlistDetails() {
   const fetchProducts = useCallback(async () => {
     try {
       const res = await axios.get(
-        `https://wishlist-backend-2-aoy9.onrender.com/api/products/${id}`,
+        `https://wishlist-backend-u15l.onrender.com/api/products/${id}`,
         {
           headers: { Authorization: `Bearer ${token}` },
         }
@@ -43,14 +43,14 @@ export default function WishlistDetails() {
     try {
       if (isEditing) {
         await axios.put(
-          `https://wishlist-backend-2-aoy9.onrender.com/api/products/${editingProductId}`,
+          `https://wishlist-backend-u15l.onrender.com/api/products/${editingProductId}`,
           { name: form.name, image: form.image, price: form.price },
           { headers: { Authorization: `Bearer ${token}` } }
         );
         setMessage("Product updated!");
       } else {
         await axios.post(
-          "https://wishlist-backend-2-aoy9.onrender.com/api/products",
+          "https://wishlist-backend-u15l.onrender.com/api/products",
           { ...form, wishlistId: id },
           { headers: { Authorization: `Bearer ${token}` } }
         );
@@ -69,7 +69,7 @@ export default function WishlistDetails() {
 
   const handleDelete = async (productId) => {
     try {
-      await axios.delete(`https://wishlist-backend-2-aoy9.onrender.com/api/products/${productId}`, {
+      await axios.delete(`https://wishlist-backend-u15l.onrender.com/api/products/${productId}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       fetchProducts();
