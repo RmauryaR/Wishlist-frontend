@@ -25,7 +25,7 @@ export default function Login() {
 
     try {
       const res = await axios.post(
-        "https://wishlist-backend-2-aoy9.onrender.com/api/auth/login",
+        "https://wishlist-backend-u15l.onrender.com/api/auth/login",
         formData
       );
       const { token, user } = res.data;
