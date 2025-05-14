@@ -15,7 +15,7 @@ export default function Dashboard() {
   const fetchWishlists = useCallback(async () => {
     try {
       const res = await axios.get(
-        "https://wishlist-backend-2-aoy9.onrender.com/api/wishlists",
+        "https://wishlist-backend-u15l.onrender.com/api/wishlists",
         {
           headers: { Authorization: `Bearer ${token}` },
         }
@@ -30,7 +30,7 @@ export default function Dashboard() {
   const fetchUser = useCallback(async () => {
     try {
       const res = await axios.get(
-        "https://wishlist-backend-2-aoy9.onrender.com/api/auth/me",
+        "https://wishlist-backend-u15l.onrender.com/api/auth/me",
         {
           headers: { Authorization: `Bearer ${token}` },
         }
@@ -51,7 +51,7 @@ export default function Dashboard() {
     e.preventDefault();
     try {
       await axios.post(
-        "https://wishlist-backend-2-aoy9.onrender.com/api/wishlists",
+        "https://wishlist-backend-u15l.onrender.com/api/wishlists",
         { title: category, category },
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -70,7 +70,7 @@ export default function Dashboard() {
       return;
     try {
       await axios.delete(
-        `https://wishlist-backend-2-aoy9.onrender.com/api/wishlists/${id}`,
+        `https://wishlist-backend-u15l.onrender.com/api/wishlists/${id}`,
         {
           headers: { Authorization: `Bearer ${token}` },
         }
