@@ -7,9 +7,11 @@ export default function Dashboard() {
   const [wishlists, setWishlists] = useState([]);
   const [category, setCategory] = useState("");
   const [message, setMessage] = useState("");
-  
+  const [userName, setUserName] = useState("");
+
   const token = localStorage.getItem("token");
 
+  // Fetch wishlists
   const fetchWishlists = useCallback(async () => {
     try {
       const res = await axios.get(
@@ -24,10 +26,27 @@ export default function Dashboard() {
     }
   }, [token]);
 
-  useEffect(() => {
-    fetchWishlists();
-  }, [fetchWishlists]);
+  // Fetch user info
+  const fetchUser = useCallback(async () => {
+    try {
+      const res = await axios.get(
+        "https://wishlist-backend-2-aoy9.onrender.com/api/auth/me",
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        }
+      );
+      setUserName(res.data.name);
+    } catch (err) {
+      console.error("Error fetching user info", err);
+    }
+  }, [token]);
 
+  useEffect(() => {
+    fetchUser();
+    fetchWishlists();
+  }, [fetchUser, fetchWishlists]);
+
+  // Handle create wishlist
   const handleCreate = async (e) => {
     e.preventDefault();
     try {
@@ -45,13 +64,17 @@ export default function Dashboard() {
     }
   };
 
+  // Handle delete wishlist
   const handleDelete = async (id) => {
     if (!window.confirm("Are you sure you want to delete this wishlist?"))
       return;
     try {
-      await axios.delete(`https://wishlist-backend-2-aoy9.onrender.com/api/wishlists/${id}`, {
-        headers: { Authorization: `Bearer ${token}` },
-      });
+      await axios.delete(
+        `https://wishlist-backend-2-aoy9.onrender.com/api/wishlists/${id}`,
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        }
+      );
       setMessage("Wishlist deleted!");
       fetchWishlists();
     } catch (err) {
@@ -62,7 +85,9 @@ export default function Dashboard() {
 
   return (
     <div className="dashboard-container">
-      <h2 className="dashboard-title">User's Dashboard</h2>
+      <h2 className="dashboard-title">
+        {userName ? `${userName}'s Dashboard` : "User's Dashboard"}
+      </h2>
 
       <form onSubmit={handleCreate} className="dashboard-form">
         <select
