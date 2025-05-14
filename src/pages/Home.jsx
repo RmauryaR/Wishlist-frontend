@@ -11,7 +11,7 @@ export default function Home() {
     const fetchAllProducts = async () => {
       try {
         const res = await axios.get(
-          "https://wishlist-backend-2-aoy9.onrender.com/api/products/all"
+          "https://wishlist-backend-u15l.onrender.com/api/products/all"
         );
         setProducts(res.data.reverse());
       } catch (err) {
