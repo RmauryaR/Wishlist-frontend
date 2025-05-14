@@ -13,7 +13,7 @@ export default function Home() {
         const res = await axios.get(
           "https://wishlist-backend-2-aoy9.onrender.com/api/products/all"
         );
-        setProducts(res.data);
+        setProducts(res.data.reverse());
       } catch (err) {
         console.error("Error fetching products", err);
       }
